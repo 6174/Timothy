@@ -1,0 +1,133 @@
+//=====================================text util==========================================//
+// .font-face 
+// .img-replace  用图片替换文字，通常用作图标的样式
+// .hide-text    用于隐藏元素内文字，一般在文字隐藏之后使用背景图片替代显示。如
+//               果使用此 mixin 的元素是 inline-block 元素，请确保为其设置宽度。
+// .force-wrap   强制换行
+// .ellipse      省略号样式，当文字超过容器宽度时，超出部分文字隐藏并显示省略号。
+// .unstyle-link
+//========================================================================================//
+
+.font-face(@family-name, @font-path, @font-weight: normal, @font-style: normal, @include-svg: false) when not (@include-svg) {
+    @url: ~"@{font-path}";
+    @encoded-url: escape(@url);
+    @decoded: ~`decodeURIComponent("@{encoded-url}").replace(/['"]/g, '')`;
+    @is-url-exp: ~`/^url\([^()]+\)$/i.test("@{decoded}") ? 'true' : 'false'`;
+    @font-face {
+        font-family: @family-name;
+        .src(@is-url-exp) when not (@is-url-exp) {
+            src: url(~"@{url}.eot");
+            .more(@include-svg) when not (@include-svg) {
+                src: url(~"@{url}.eot?#iefix") format("embedded-opentype"),
+                     url(~"@{url}.woff") format("woff"),
+                     url(~"@{url}.ttf") format("truetype");                            
+            }
+            .more(@include-svg) when (@include-svg) {
+                src: url(~"@{url}.eot?#iefix") format("embedded-opentype"),
+                     url(~"@{url}.woff") format("woff"),
+                     url(~"@{url}.ttf") format("truetype"),
+                     url(~"@{url}.svg#@{family-name}") format("svg");
+            }
+            .more(@include-svg);
+        }
+        .src(@is-url-exp) when (@is-url-exp) {
+            @path: ~`/^url\(([^()]+?)\)$/i.exec("@{decoded}")[1]`;
+            src: ~'url(@{path}.eot)';
+            .more(@include-svg) when not (@include-svg) {
+                src: ~"url(@{path}.eot?#iefix)" format("embedded-opentype"),
+                     ~"url(@{path}.woff)" format("woff"),
+                     ~"url(@{path}.ttf)" format("truetype");
+            }
+            .more(@include-svg) when (@include-svg) {
+                src: ~"url(@{path}.eot?#iefix)" format("embedded-opentype"),
+                     ~"url(@{path}.woff)" format("woff"),
+                     ~"url(@{path}.ttf)" format("truetype"),
+                     ~"url(@{path}.svg#@{family-name})" format("svg");
+            }
+            .more(@include-svg);
+        }
+        .src(@is-url-exp);
+        font-weight: @font-weight;
+        font-style: @font-style;
+    }
+}
+
+
+// 用图片替换文字，通常用作icon的样式
+
+.img-replace(@img-url, @img-x: 0, @img-y: 0) {
+    @url: ~"@{img-url}";
+    @encoded-url: escape(@url);
+    @decoded: ~`decodeURIComponent("@{encoded-url}").replace(/['"]/g, '')`;
+    @is-url-exp: ~`/^url\([^()]+\)$/i.test("@{decoded}") ? 'true' : 'false'`;
+    .hide-text();
+    .background(@is-url-exp) when not (@is-url-exp) {
+        background: url(@decoded) no-repeat @img-x @img-y;
+    }
+    .background(@is-url-exp) when (@is-url-exp) {
+        background: @decoded no-repeat @img-x @img-y;
+    }
+    .background(@is-url-exp);
+}
+
+
+.hide-text(){
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+}
+
+.force-wrap() {
+    white-space: pre;           // CSS 2.0
+    white-space: pre-wrap;      // CSS 2.1
+    white-space: pre-line;      // CSS 3.0
+    white-space: -pre-wrap;     // Opera 4-6
+    white-space: -o-pre-wrap;   // Opera 7
+    white-space: -moz-pre-wrap; // Mozilla
+    white-space: -hp-pre-wrap;  // HP Printers
+    word-wrap: break-word;      // IE 5+ 
+}
+
+.ellipsis(...) {
+    overflow: hidden;
+}
+.ellipsis() {
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis(@line-number) {
+    display: -webkit-box;
+    -webkit-line-clamp: @line-number;
+    -webkit-box-orient: vertical;  
+}
+
+.unstyled-link() {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: inherit;
+    &:active, &:focus {
+        outline: none;
+    }
+}
+
+.center-box(){
+    b.center-hack{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .center-body{
+        letter-spacing: normal;
+        word-spacing: normal;
+        word-wrap: break-word;
+        display: inline-block;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        white-space: normal;
+    } 
+}

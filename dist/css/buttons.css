@@ -1,0 +1,233 @@
+/*-------------------
+  basic button frame
+--------------------*/
+.button {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  margin: 0em;
+  padding: 0.8em 1.5em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  -moz-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  -o-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  background-color: #FAFAFA;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  color: #808080;
+}
+.button.active,
+.buttons .button.active {
+  background-color: #EAEAEA;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  background-image: none;
+}
+.button:hover {
+  color: rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+}
+.active.button:hover {
+  background-image: none;
+}
+.button:hover .icon {
+  opacity: 0.0085;
+  filter: alpha(opacity=0.85);
+}
+.button:active,
+.active.button:active {
+  background-color: #F1F1F1;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+}
+.disabled.button,
+.disabled.button:hover,
+.disabled.button:active {
+  background-color: #DDD !important;
+  cursor: default;
+  color: rgba(0, 0, 0, 0.5) !important;
+  opacity: 0.3 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+/*-------------------
+  button sizes
+--------------------*/
+.tiny.buttons .button,
+.tiny.button {
+  font-size: 0.8rem;
+  padding: 0.6em 0.8em;
+}
+.small.buttons .button,
+.small.button {
+  font-size: 0.875rem;
+  padding: 0.6em 0.8em;
+}
+.medium.buttons .button,
+.meidum.button {
+  font-size: 1.125rem;
+  padding: 0.6em 0.6em;
+}
+.large.buttons .button,
+.large.button {
+  font-size: 1.25rem;
+  padding: 0.6em 0.6em;
+}
+/*-------------------
+  button with icon
+--------------------*/
+.button > [class*="icon-"] {
+  margin-right: 0.6em;
+  line-height: 1;
+  -webkit-transition: opacity 0.1s ease;
+  -moz-transition: opacity 0.1s ease;
+  -o-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+/*-------------------
+  button group
+--------------------*/
+.buttons {
+  display: inline-block;
+  vertical-align: middle;
+  *zoom: 1;
+}
+.buttons:before,
+.buttons:after {
+  display: table;
+  content: "";
+}
+.buttons:after {
+  clear: both;
+}
+.buttons .button {
+  float: left;
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+}
+.buttons .button:first-child {
+  border-left: none;
+  -webkit-border-top-left-radius: 0.25em;
+  -moz-border-radius-topleft: 0.25em;
+  border-top-left-radius: 0.25em;
+  -webkit-border-bottom-left-radius: 0.25em;
+  -moz-border-radius-bottomleft: 0.25em;
+  border-bottom-left-radius: 0.25em;
+}
+.buttons .button:last-child {
+  border-right: none;
+  -webkit-border-top-right-radius: 0.25em;
+  -moz-border-radius-topright: 0.25em;
+  border-top-right-radius: 0.25em;
+  -webkit-border-bottom-right-radius: 0.25em;
+  -moz-border-radius-bottomright: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+.vertical.buttons {
+  display: inline-block;
+}
+.vertical.buttons .button {
+  display: block;
+  float: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.vertical.buttons .button:first-child,
+.vertical.buttons .tiny.button:first-child,
+.vertical.buttons .small.button:first-child,
+.vertical.buttons .medium.button:first-child,
+.vertical.buttons .large.button:first-child {
+  margin-top: 0px;
+  -webkit-border-radius: 0.25em 0.25em 0px 0px;
+  -moz-border-radius: 0.25em 0.25em 0px 0px;
+  border-radius: 0.25em 0.25em 0px 0px;
+}
+.vertical.buttons .button:last-child,
+.vertical.buttons .tiny.button:last-child,
+.vertical.buttons .small.button:last-child,
+.vertical.buttons .medium.button:last-child,
+.vertical.buttons .large.button:last-child {
+  -webkit-border-radius: 0px 0px 0.25em 0.25em;
+  -moz-border-radius: 0px 0px 0.25em 0.25em;
+  border-radius: 0px 0px 0.25em 0.25em;
+}
+/*-------------------
+  default button skins
+--------------------*/
+/*-------------------
+  Basic button skin
+--------------------*/
+.basic.buttons .button,
+.basic.button {
+  background-color: transparent;
+  background-image: none;
+  color: #808080 !important;
+  font-weight: normal;
+  -webkit-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.basic.buttons {
+  -webkit-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+.basic.buttons .button:hover,
+.basic.button:hover {
+  background-color: transparent;
+  background-image: none;
+  color: #7F7F7F  !important;
+  -webkit-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+}
+.basic.buttons .button:active,
+.basic.button:active {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  background-image: none;
+  color: #7F7F7F  !important;
+  -webkit-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  box-shadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+}
+.basic.buttons .button.active,
+.basic.button.active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #7F7F7F;
+  -webkit-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  -moz-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+}
+.basic.buttons .button.active:hover,
+.basic.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/*-------------------
+  Tmall button skin
+--------------------*/

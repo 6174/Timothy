@@ -1,2 +1,26 @@
-@import 'normalize.less';
-@import 'grid.less';
+@import 'timothy-base.less';
+/**
+ * reset box-sizing
+ */
+*, *:after, *:before{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+html{
+	font-family: @default-base-font-family;
+	h1, h2, h3, h4, h5, h6{
+		font-family: @default-heading-font-family;
+	}
+	code{
+		font-family: @default-code-font-family
+	}
+	.rhythm();
+}
+
+.makeRow(12, 10);
+.makeBlockGrid();
+
+@import 'visibility.less';
+@import 'font-awesome.less';

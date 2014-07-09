@@ -1,0 +1,107 @@
+// =============================================
+// @des:     foundation grid 
+// @author:  chenxuejia67@gmail.com
+// @time:    2014-07-08
+// =============================================
+@default-font-size: 16px;
+.makeRow(@column-number: 12, @gutter: 10px){
+  @default-float: 'left';
+  @opposite-float: 'right';
+
+  .row{
+    .grid-row();
+    //--if no size specified, then use 100% width colum
+    .column, .columns{
+      .grid-column(@column-number);
+    }
+
+    @media @m-small-upper {
+      .grid-system(small);
+    }
+
+    @media @m-medium-upper {
+      .grid-system(medium);
+    }
+
+    @media @m-large-upper {
+      .grid-system(large);
+    }
+
+  }
+
+  .grid-system(@size: 'small'){
+  	//--basic @size
+    .loop(@column-number);
+    .loop(@index) when (@index > 0){
+    	.@{size}-@{index}{
+    		.grid-column(@index);
+    	}
+    	@decrease-index: @index - 1;
+		.@{size}-offset-@{decrease-index}{
+			.grid-column-offset(@index - 1);
+		}
+		.@{size}-push-@{decrease-index}{
+			.grid-column-push(@index - 1);
+		}
+		.@{size}-pull-@{decrease-index}{
+			.grid-column-pull(@index - 1);
+		}
+    	.loop(@index - 1);
+    }
+    .loop(0){}
+
+    //--center
+	.@{size}-centered{
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+	.@{size}-centered:last-child{
+		float: none;
+	}
+	.@{size}-uncentered{
+		margin-left: 0;
+		margin-right: 0;
+		float: left;
+	}
+	.@{size}-uncentered:last-child{
+		float: left;
+	}		
+  }
+
+  .grid-row(){
+    width: 100%;    
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    .clearfix();
+  }
+
+  .grid-column(@column-index: 0){
+    position: relative;
+   	float: left;
+    //-- em or px ? 
+    .padding-left-em(@gutter / 2);
+    .padding-right-em(@gutter / 2);
+	
+    width: percentage(@column-index / @column-number);
+  } 
+
+  .grid-column-offset(@offset-index){
+	margin-left: percentage(@offset-index / @column-number);
+  }
+
+  .grid-column-push(@index){
+	float: none;
+	left: percentage(@index / @column-number);
+	right: auto;
+  }
+
+  .grid-column-pull(@index){
+	float: none;
+	right: percentage(@index / @column-number);
+	left: auto;
+  }
+
+}
+ 

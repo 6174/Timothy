@@ -1,0 +1,125 @@
+//=====================================vertical rhythm ==========================================//
+// .rhythm()
+// .rhythm(14px, 2);        // font-size 必须是px单位
+// .rhythm(14px, 180%);
+// .rhythm(14px, 1.8em);
+// .rhythm(14px, 28px);
+//
+// 按照“垂直的旋律”来排版文字，适合中文阅读
+// 一般用于多段文字（文章）的显示
+// 基础高度(px) = 行高 / 2;
+//
+// 辅助的mixin:
+//      设置行高为 n*2*基础高度
+//      .rhythm-line-height();      // 1*2 = 2
+//      .rhythm-line-height(1);     // 1*2 = 2
+//      .rhythm-line-height(2);     // 2*2 = 4
+//      设置margin为 n*基础高度
+//      .rhythm-margin();           // 上下margin都为 1*基础高度
+//      .rhythm-margin(1);          // 上下margin都为 1*基础高度
+//      .rhythm-margin-top();       // 上margin都为 1*基础高度
+//      .rhythm-margin-top(2);      // 上margin都为 2*基础高度
+//      .rhythm-margin-bottom();    // 下margin都为 1*基础高度
+//      .rhythm-margin-bottom(2);   // 下margin都为 2*基础高度
+//      设置padding为 n*基础高度
+//      .rhythm-padding();          // 上下padding都为 1*基础高度
+//      .rhythm-padding(2);         // 上下padding都为 2*基础高度
+//      .rhythm-padding-top();      // 上padding都为 1*基础高度
+//      .rhythm-padding-top(2);     // 上padding都为 2*基础高度
+//      .rhythm-padding-bottom();   // 下padding都为 1*基础高度
+//      .rhythm-padding-bottom(2);  // 下padding都为 2*基础高度
+//      设置padding同时设置border
+//      .rhythm-padding(2, 1px solid #CCC);         // 上下padding都为 2*基础高度-1 , 上下border宽度为 1
+//      .rhythm-padding-top(2, 4px solid #CCC);     // 上padding都为 2*基础高度-4 , 上border宽度为 4
+//      .rhythm-padding-bottom(2, 4px solid #CCC);  // 下padding都为 2*基础高度-4 , 下border宽度为 4
+//      .rhythm-padding(2, 1px);                    // 第二个值只写一部分，但是一定要先写宽度
+//==============================================================================================//
+.rhythm(@font-size: 14px, @line-height: 1.8) {
+    
+    font-size: @font-size;
+    line-height: @line-height;
+
+    .rhythm-line() when (isnumber(@line-height)) {
+        @line: @font-size * @line-height / 2;
+    }
+    .rhythm-line() when (ispixel(@line-height)) {
+        @line: @line-height / 2;
+    }
+    .rhythm-line() when (ispercentage(@line-height)) {
+        @line: ((unit(@line-height) / 100) * @font-size) / 2;
+    }
+    .rhythm-line() when (isem(@line-height)) {
+        @line: (unit(@line-height) * @font-size) / 2;
+    }
+
+    .rhythm-line();
+    .rhythm-line-height(@lines: 1) {
+        line-height: @line * 2 * @lines;
+    }
+
+    .rhythm-margin(@lines: 1) {
+        margin-top: (@line * @lines);
+        margin-bottom: (@line * @lines);
+    }
+    .rhythm-margin-top(@lines: 1) {
+        margin-top: (@line * @lines);
+    }
+    .rhythm-margin-bottom(@lines: 1) {
+        margin-bottom: (@line * @lines);
+    }
+
+    .rhythm-padding(@lines: 1, @border: false) when not (@border = false) {
+        @border-width: ~`parseInt('@{border}'.match(/(\d+)(?:px)?/)[1], 10)`;
+        padding-top: (@line * @lines - @border-width);
+        padding-bottom: (@line * @lines - @border-width);
+        border-top: @border;
+        border-bottom: @border;
+    }
+    .rhythm-padding(@lines: 1, @border: false) when (@border = false) {
+        padding-top: (@line * @lines);
+        padding-bottom: (@line * @lines);
+    }
+    .rhythm-padding-top(@lines: 1, @border: false) when not (@border = false) {
+        @border-width: ~`parseInt('@{border}'.match(/(\d+)(?:px)?/)[1], 10)`;
+        padding-top: (@line * @lines - @border-width);
+        border-top: @border;
+    }
+    .rhythm-padding-top(@lines: 1, @border: false) when (@border = false) {
+        padding-top: (@line * @lines);
+    }
+    .rhythm-padding-bottom(@lines: 1, @border: false) when not (@border = false) {
+        @border-width: ~`parseInt('@{border}'.match(/(\d+)(?:px)?/)[1], 10)`;
+        padding-bottom: (@line * @lines - @border-width);
+        border-bottom: @border;
+    }
+    .rhythm-padding-bottom(@lines: 1, @border: false) when (@border = false) {
+        padding-bottom: (@line * @lines);
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    div, p, section, header, footer, article,
+    ul, ol, pre, table, figure {
+        .rhythm-line-height();
+        .rhythm-margin();
+        padding: 0;
+    }
+    h1 {
+        .rhythm-line-height(2);
+    }
+    h1 {
+        font-size: @font-size * 2;
+    }
+    h2 {
+        font-size: @font-size * 1.5;
+    }
+    h3 {
+        font-size: @font-size * 1.2;
+    }
+    h4, h5, h6 {
+        font-size: @font-size;
+    }
+}
+
+
+
+

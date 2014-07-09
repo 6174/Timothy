@@ -1,0 +1,27 @@
+{
+  "name": "timothy",
+  "version": "0.0.0",
+  "description": "mobile first responsive front end framework",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6174/Timothy.git"
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-watch": "latest",
+    "gulp-less": "latest"
+  },
+  "author": "6174",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6174/Timothy/issues"
+  },
+  "homepage": "https://github.com/6174/Timothy"
+}

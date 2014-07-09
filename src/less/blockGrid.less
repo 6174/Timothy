@@ -1,0 +1,56 @@
+// ==========================================
+// @des: foundation block grid in less
+// @author: chenxuejia67@gmail.com
+// @time: 2014-07-08
+// =========================================
+.makeBlockGrid(@grids: 12){
+
+  @grid-number: @grids;
+
+  [class*="block-grid-"] {
+    display: block;
+    padding: 0;
+    margin: 0 -0.625rem; 
+    .clearfix();
+  }
+
+  [class*="block-grid-"] > li {
+    display: block;
+    height: auto;
+    float: left;
+    padding: 0 0.625rem 1.25rem; 
+  }
+
+  @media @m-small-upper {
+    .block-grid(small);
+  }
+  @media @m-medium-upper{
+    .block-grid(medium);
+  }
+  @media @m-large-upper{
+    .block-grid(large)
+  }
+  
+  .block-grid(@size: small){
+    .loop(@grid-number);
+    .loop(@index) when (@index > 0){
+      .@{size}-block-grid-@{index}{
+        .grid(@index);
+      }
+      .loop(@index - 1)
+    }
+
+    .loop(0){}
+  }
+
+  .grid(@index){
+    & > li {
+      width: percentage(@index / @grid-number);
+
+    }
+    & > li:nth-of-type(1n) {
+      clear: none;
+    }
+  }
+
+}

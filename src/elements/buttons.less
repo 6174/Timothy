@@ -1,0 +1,246 @@
+@import '../less/timothy-base.less';
+@default-border-radius: 0.25em; 
+/*-------------------
+  basic button frame
+--------------------*/
+.button{
+  cursor: pointer;
+	display: inline-block;
+  vertical-align: middle;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  margin: 0em;
+  padding: 0.8em 1.5em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  .user-select(none);
+  .box-sizing(border-box);
+  .transition(e('opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease'));
+	.btn-skin-default();
+}	
+
+// active
+.button.active,
+.buttons .button.active{
+	.btn-skin-default-active();
+}
+// mouse hover
+.button:hover{
+ .btn-skin-default-hover();
+}
+.active.button:hover{
+	background-image: none;
+}
+.button:hover .icon{
+	.opacity(0.85);
+}
+// mouse down
+.button:active,
+.active.button:active{
+	.btn-skin-default-mouse-down();
+}
+
+// disabled
+.disabled.button,
+.disabled.button:hover,
+.disabled.button:active{
+	.btn-skin-default-disabled();
+}
+
+
+/*-------------------
+  button sizes
+--------------------*/
+@size-tiny: 0.8rem;
+@size-small: 0.875rem;
+@size-medium: 1.125rem;
+@size-large: 1.25rem;
+.tiny.buttons .button,
+.tiny.button{
+	font-size: @size-tiny;
+	padding: 0.6em 0.8em;
+}
+
+.small.buttons .button,
+.small.button {
+  font-size: @size-small;
+  padding: 0.6em 0.8em;
+}
+
+.medium.buttons .button,
+.meidum.button {
+  font-size: @size-medium;
+  padding: 0.6em 0.6em;
+}
+
+.large.buttons .button,
+.large.button {
+  font-size: @size-large;
+  padding: 0.6em 0.6em;
+}
+
+
+/*-------------------
+  button with icon
+--------------------*/
+.button > [class*="icon-"] {
+  margin-right: 0.6em;
+  line-height: 1;
+	.transition(e('opacity 0.1s ease'));
+}
+
+
+/*-------------------
+  button group
+--------------------*/
+
+.buttons{
+	display: inline-block;
+	vertical-align: middle;
+	.clearfix();
+}
+.buttons .button{
+	float: left;
+	.border-radius(0em);
+}
+.buttons .button:first-child {
+  border-left: none;
+  .border-top-left-radius(@default-border-radius);
+  .border-bottom-left-radius(@default-border-radius);
+}
+
+.buttons .button:last-child {
+  border-right: none;
+  .border-top-right-radius(@default-border-radius);
+  .border-bottom-right-radius(@default-border-radius);
+}
+
+//--vertival button group
+.vertical.buttons{
+	display: inline-block;
+}
+
+.vertical.buttons .button{
+	display: block;
+	float: none;
+	.box-shadow(e('0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset'));
+}
+
+.vertical.buttons .button:first-child,
+.vertical.buttons .tiny.button:first-child,
+.vertical.buttons .small.button:first-child,
+.vertical.buttons .medium.button:first-child,
+.vertical.buttons .large.button:first-child {
+  margin-top: 0px;
+  .border-radius(e('0.25em 0.25em 0px 0px'));
+}
+.vertical.buttons .button:last-child,
+.vertical.buttons .tiny.button:last-child,
+.vertical.buttons .small.button:last-child,
+.vertical.buttons .medium.button:last-child,
+.vertical.buttons .large.button:last-child {
+	.border-radius(e('0px 0px 0.25em 0.25em'));
+}
+/////////////////////////////////////////
+//////////////////////////////////////////////////
+/////////////button skins below////////////////
+/////////////////////////////////////
+//////////////////////////////////
+
+/*-------------------
+  default button skins
+--------------------*/
+.btn-skin-default(){
+  background-color: #FAFAFA;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));	
+  color: #808080;
+}
+
+.btn-skin-default-active(){
+	background-color: #EAEAEA;
+  color:  rgba(0, 0, 0, 0.7);
+  .box-shadow(e('0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important'));
+  background-image: none;
+}
+
+.btn-skin-default-hover(){
+	color: rgba(0, 0, 0, 0.7);
+	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+}
+
+.btn-skin-default-mouse-down(){
+	background-color: #F1F1F1;
+	color: rgba(0, 0, 0, 0.7);
+	.box-shadow(e('0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important'));
+}
+
+.btn-skin-default-disabled(){
+	background-color: #DDD !important;
+	cursor: default;
+	color: rgba(0, 0, 0, 0.5) !important;
+	opacity: 0.3 !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+/*-------------------
+  Basic button skin
+--------------------*/
+.basic.buttons .button,
+.basic.button{
+	background-color: transparent;
+	background-image: none;
+	color: #808080 !important;
+	font-weight: normal;
+	.box-shadow(e(' 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset'));
+}
+.basic.buttons{
+	.box-shadow(e(' 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset'));
+	.border-radius(0.25em);
+}
+.basic.buttons .button:hover,
+.basic.button:hover{
+	background-color: transparent;
+	background-image: none;
+	color: #7F7F7F  !important;
+	.box-shadow(e(' 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset'));
+}
+.basic.buttons .button:active,
+.basic.button:active{
+	background-color: rgba(0, 0, 0, 0.02) !important;
+	background-image: none;
+	color: #7F7F7F  !important;
+	.box-shadow(e(' 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset'));
+}
+.basic.buttons .button.active,
+.basic.button.active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #7F7F7F;
+  .box-shadow(e('0px 0px 0px 1px #BDBDBD inset'));
+}
+.basic.buttons .button.active:hover,
+.basic.button.active:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*-------------------
+  Tmall button skin
+--------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
