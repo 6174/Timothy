@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../dist/css/timothy.css">
+        <link rel="stylesheet" href="../dist/css/buttons.css">
+        <link rel="stylesheet" href="../dist/css/input.css">
+        <link rel="stylesheet" href="../dist/css/form.css">
+        <link rel="stylesheet" href="../dist/css/label.css">
+        <link rel="stylesheet" href="../dist/css/segment.css">
+        <link rel="stylesheet" href="stylesheets/baby-blue.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+        <script src="http://g.tbcdn.cn/kissy/k/1.4.4/seed-min.js"></script>
+        <script src="../src/timothy/timothy.js"></script>
+        <title>Timothy by 6174</title>
+    </head>
+    <body>
+        <header class="row">
+            <div class="small-10 large-6  small-centered">
+                <h1>Timothy</h1>
+                <h2>Responsive And  Mobile First  Front End Framework</h2>
+            </div>
+        </header>
+        <div class="row" >
+            <section  class="main-content small-10 large-6  small-centered">
+                <br>
+                <!-- ======================================我是感情的分割线============================================================= -->
+                <!-- about -->
+                <h3>介绍</h3>
+                <p>Timothy 中文名为猫尾草，如果看过《猫的报恩》一定有些印象，总之其意为猫珍贵和喜爱的东西。ti 是tiny的意思， mo是mobile first的意思， 在这里，猫尾草意为一款小巧的以mobile first和responsive为目标的前端UI框架。 </p>
+                <p>特点: &nbsp;&nbsp;<b>语义化</b>，<b>响应式</b>，<b>Mobile</b></p>
+                <br>
+                <!-- ======================================我是感情的分割线============================================================= -->
+                <!-- grid system -->
+                <h3> Step 1: &nbsp;网格系统 &nbsp; Responsive Grid
+                </h3>
+                <hr>
+                <p>
+                和传统的网格系统一致，Timothy也是以12格为标准(可以在less文件中自定义)，将屏幕分为三种， 分别为<span class="label blue">small</span>, <span class="label yellow">medium</span>, <span class="label red">large</span>； 为何说是mobile first。 有过responsive网站设计的前端都知道， 如果重大屏幕适配到小屏幕是很困难的， 然后反过来会变得相对容易， 可以想像， 小屏幕的东西放在大屏幕上怎么也不会改变， 然后大屏幕的则不然。
+                </p>
+                <p>我们来看看最简单的例子， Timothy是如何做响应设计的，改变浏览器的大小， 可以看到当在large屏幕的时候， 一行有4个网格， 在么medium屏幕的时候， 一行有2个网格，在small屏幕的时候，一行有1个网格：</p>
+<pre class="code" data-language="html"><code> 
+&lt;div class="row"&gt;
+    &lt;div class="column small-12 medium-6 large-3"&gt;*&lt;/div&gt;
+    &lt;div class="column small-12 medium-6 large-3"&gt;*&lt;/div&gt;
+    &lt;div class="column small-12 medium-6 large-3"&gt;*&lt;/div&gt;
+    &lt;div class="column small-12 medium-6 large-3"&gt;*&lt;/div&gt;
+ &lt;/div&gt;  
+</code></pre>
+                <div class="row display">
+                    <div class="column small-12 medium-6 large-3">
+                        <b class="show-for-small">small屏幕</b>
+                        <b class="show-for-medium">medium屏幕</b>
+                        <b class="show-for-large">large屏幕</b>
+                    </div>
+                    <div class="column small-12 medium-6 large-3">
+                        <b class="show-for-small">small屏幕</b>
+                        <b class="show-for-medium">medium屏幕</b>
+                        <b class="show-for-large">large屏幕</b>
+                    </div>
+                    <div class="column small-12 medium-6 large-3">
+                        <b class="show-for-small">small屏幕</b>
+                        <b class="show-for-medium">medium屏幕</b>
+                        <b class="show-for-large">large屏幕</b>
+                    </div>
+                    <div class="column small-12 medium-6 large-3">
+                        <b class="show-for-small">small屏幕</b>
+                        <b class="show-for-medium">medium屏幕</b>
+                        <b class="show-for-large">large屏幕</b>
+                    </div>
+                </div>
+
+                <p>在网站设计的过程中， 水平居中是很常用的设计。 在Timothy中， 可以用如下方法将一个网格居中， <i>注意在large的时候才居中，medium和small的时候都不会居中， 如果想让所有的屏幕都居中， 使用small-centered就行(mobile-first)</i></p>
+<pre class="code" data-language="html"><code> 
+&lt;div class="row"&gt;
+    &lt;div class="column small-3 large-centered"&gt;*&lt;/div&gt;
+ &lt;/div&gt;  
+</code></pre>
+                <div class="row display">
+                    <div class="column small-3  large-centered">3</div>
+                </div>
+
+                <p>push-size和pull-size方法</p>
+                <div class="row display">
+                    <div class="column small-3  large-push-1">3</div>
+                    <div class="column small-3  large-pull-1">3</div>
+                </div>
+
+                <p>show-for 方法, 只需要添加一个类就可以在不同屏幕尺寸中显示和隐藏。 </p>
+                <h1>
+                <div class="show-for-small label blue">I am smally</div>
+                <div class="show-for-medium label yellow">yo, I'm mediuma</div>
+                <div class="show-for-large label red">It's largery, hi</div>
+                </h1>
+<pre class="code" data-language="html"><code>                   
+  &lt;h1&gt;  
+    &lt;div class="show-for-small"&gt;show-for-small&lt;/div&gt;
+    &lt;div class="show-for-medium"&gt;show-for-medium&lt;/div&gt;
+    &lt;div class="show-for-large"&gt;show-for-large&lt;/div&gt;
+  &lt;/h1&gt; 
+</code></pre>
+                <p>也可以hide-for-size</p>
+
+                <h1>
+                  <div class="hide-for-small label">I will disapear in small screen</div>
+                </h1>
+
+                <h4>Block Grid</h4>
+                <p>如果写column， small ＊＊这些类写得太累了？ 感觉不会爱？ Block grid也学可以帮上忙 ， 看看代码， 改变窗口大小就明了我说得是什么了</p>
+<pre class="code" data-language="html"><code>  
+&lt;ul class="small-block-grid-12 medium-block-grid-6 large-block-grid-3"&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt; 
+</code></pre>
+                <ul class="small-block-grid-12 medium-block-grid-6 large-block-grid-3
+                    display-block-grid">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+                <!-- ======================================我是感情的分割线============================================================= -->
+                <!-- Buttons -->
+                <h3>
+                Step 2 : &nbsp;&nbsp; 按钮 Buttons
+                </h3>
+                <hr>
+                <p>按钮是web应用中最常用得元素， 看看Timothy得基本按钮</p>
+<pre class="code" data-language="html"><code>  
+&lt;div class="button"&gt;
+  Button default
+&lt;/div&gt;
+&lt;div class="button basic"&gt;
+  basic button
+&lt;/div&gt;
+&lt;div class="button disabled "&gt;
+  basic button
+&lt;/div&gt;
+</code></pre>
+                <div class="button">
+                    我是按钮
+                </div>
+                <div class="button basic">
+                    我是basic按钮
+                </div>
+                <div class="button disabled ">
+                    我是被disabled得按钮
+                </div>
+                <br>
+                <br>
+                <h4>button 的尺寸</h4>
+                <p>分为
+                tiny， small， medium，large</p>
+                <div class="button tiny basic">
+                    button small
+                </div>
+                <div class="button small">
+                    basic small
+                </div>
+                <div class="button medium">
+                    basic medium
+                </div>
+                <div class="button large">
+                    basic large
+                </div>
+
+                <p>button fluid: large fluid button </p>
+                 <div class="large fluid button">
+                    large fluid button
+                </div>
+                <br>
+                <br>
+                <h4>button with icon</h4>
+                <a class="button medium" href="#"><i class="icon-repeat"></i> Reload</a>
+                <div class="button medium">
+                    <i class="icon-spinner icon-spin"></i>
+                    large
+                </div>
+                <br><br>
+                <h4>button groups</h4>
+                <div class="basic buttons">
+                    <div class="button">One</div>
+                    <div class="button">Two</div>
+                    <div class="button">Three</div>
+                </div>
+                <div class="vertical buttons">
+                    <div class="button">One</div>
+                    <div class="button">Two</div>
+                    <div class="button">Three</div>
+                </div>
+                <br><br>
+                <h4>button color </h4>
+                <div class="primary medium button">primary</div>
+                <div class="secondary medium button">secondary</div>
+                <div class="warning medium button">warning</div>
+                <div class="success medium button">success</div>
+                <div class="info medium button">info</div>
+                <div class="danger medium button">danger</div>
+                <br><br>
+                <!-- ======================================我是感情的分割线 input============================================================= -->
+                <h3>Step 3: 表单元素input</h3>
+                <hr>
+                <p>标准的text input</p>
+                <div class="input">
+                  <input type="text" placeholder="搜索..">
+                </div>
+                <p>icon input</p>
+                 <div class="icon input">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <div class="icon input">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-spinner icon-spin"></i>
+                </div>
+                <p>icon left input</p>
+                 <div class="icon left input">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <div class="icon left input">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-spinner icon-spin"></i>
+                </div>
+                <p>inverted icon </p>
+                 <div class="icon inverted input">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <p>action input</p>
+                <div class="action input">
+                  <input type="text" placeholder="Search...">
+                  <div class="button">Go</div>
+                </div>
+                 <div class="left action input ">
+                  <div class="button"><i class="icon-search"></i></div>
+                  <input type="text" placeholder="Search...">
+                </div>
+
+                <p>fluid input</p>
+                
+                <div class="icon input fluid">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+               
+
+                <div class="left action fluid input ">
+                  <div class="button"><i class="icon-search"></i></div>
+                  <input type="text" placeholder="Search...">
+                </div>
+
+                <p>input size</p>
+                <div class="icon tiny input ">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <div class="icon small input ">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <div class="icon medium input ">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+                <div class="icon large input ">
+                  <input type="text" placeholder="搜索..">
+                  <i class="icon-search"></i>
+                </div>
+
+                <br><br>
+                <!-- ======================================我是感情的分割线 input============================================================= -->
+                <h3>Check Box and Radios</h3>
+                <hr>
+                <p>不用for的radio 和checkbox</p>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="indicator"></span>
+                  Check this custom checkbox
+                </label>
+                <br>
+                <label class="radio">
+                  <input type="radio" id="radio1" name="radio">
+                  <span class="indicator"></span>
+                  Toggle this custom radio
+                </label>
+
+                <br>
+                <label class="radio">
+                  <input type="radio" id="radio2" name="radio">
+                  <span class="indicator"></span>
+                  Or toggle this other custom radio
+                </label>
+                <br>
+<pre class="code" data-language="html"><code>  
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;span class="indicator"&gt;&lt;/span&gt;
+    Check this custom checkbox
+  &lt;/label&gt;
+
+  &lt;label class="radio"&gt;
+    &lt;input type="radio" id="radio1" name="radio"&gt;
+    &lt;span class="indicator"&gt;&lt;/span&gt;
+    Toggle this custom radio
+  &lt;/label&gt;
+
+  &lt;label class="radio"&gt;
+    &lt;input type="radio" id="radio2" name="radio"&gt;
+    &lt;span class="indicator"&gt;&lt;/span&gt;
+    Or toggle this other custom radio
+  &lt;/label&gt;
+</code></pre>
+            <br>
+              <!-- ======================================我是感情的分割线 input============================================================= -->
+            <h3>labels </h3>
+            <hr>
+            <p>default labels</p>
+            <div class="label">label default</div>
+            <div class="label"> <i class="icon-mail-forward"></i> 23 </div>
+            <div class="label"> ipad <b>233</b> </div>
+            <div class="label"> Inbox <a class="detail"><i class="icon-inbox"></i> 23</a> </div>
+            
+            <p>image label</p>
+            <a class="image label">
+              <img src="./images/photo2.jpg">
+              dog@doggington.com
+              <i class="delete icon"></i>
+            </a>
+
+            <p>corner label</p>
+            <div class="segment">
+            <div class="right red corner label">
+              <i class="heart icon"></i>
+            </div>
+            <div class="left corner label">
+              <div class="text">New</div>
+            </div>
+            <div class="corner label red">
+              <i class="icon-bookmark"></i>
+            </div>
+            This is a normal text segment <br>
+            labels are labeld on corners
+          </div>
+
+            <p>colors</p>
+            <span class="label blue">blue</span>
+            <div class="label secondary">secondary</div>
+            <span class="yellow label">yellow</span>
+            <span class="green label">green</span>
+            <span class="red label">red</span>
+            <span class="dark label">dark</span>
+ 
+            <br><br><br>
+
+            <h2>Components</h2>
+            <h3>Interchange</h3>
+            <hr>
+            <!--  -->
+            <img src="" style="width: 100%;" data-interchange="(images/space-small.jpg ,small), (images/space-medium.jpg, medium), (images/space-large.jpg, large)"/>
+
+            </section>
+        </div>
+        <script src="javascripts/main.js"></script>
+        <script src="javascripts/rainbow.js"></script>
+    </body>
+</html>

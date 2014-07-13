@@ -1,0 +1,84 @@
+//------------------------------------------
+//   typography settings
+//------------------------------------------
+@default-font-size: 16;
+@default-text-color: #666;
+@default-input-placeholder-color: #999;
+@default-header-font-color: #444444 ;
+@default-header-link-color: #d04526 ;
+@default-header-link-hover-color: #c03d20 ;
+@default-body-font-color: #555555 ;
+@default-body-link-color: #d04526 ;
+@default-body-link-hover-color: #c03d20;
+@default-base-font: 400 1em/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+@default-heading-font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+@default-code-font-family: Monaco, Consolas, monospace;
+@default-blockquote-font-family:Avenir, 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+
+//------------------------------------------
+//   default box model settings
+//------------------------------------------
+// default visual settings
+@default-border-radius: 4px;
+@default-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+@header-z-index: 1000;
+@footer-z-index: 1000;
+@modal-z-index: 1050;
+
+//------------------------------------------
+//  media query setting
+//------------------------------------------
+//--Media Query Ranges
+@small-lower-bound: 0em;
+@small-upper-bound: 40em;
+@medium-lower-bound: 40.063em;
+@medium-upper-bound: 64em;
+@large-lower-bound: 64.063em;
+@large-upper-bound: 90em;
+@xlarge-lower-bound: 90.063em;
+@xlarge-upper-bound: 120em;
+@xxlarge-lower-bound: 120.063em;
+@m-screen: only screen;
+@m-landscape: e(%("%a and  (orientation: landscape)", @m-screen));
+@m-portrait: e(%("%a and  (orientation: portrait)", @m-screen));
+@m-small-only: e(%(" %a and (max-width: %a)", @m-screen, @small-upper-bound));
+@m-small-upper: @m-screen;
+@m-medium-only: e(%(" %a and  (min-width: %a) and (max-width: %a)", @m-screen, @medium-lower-bound, @medium-upper-bound));
+@m-medium-upper: e(%('%a and (min-width: %a)', @m-screen, @medium-lower-bound));
+@m-large-only:  e(%(" %a and  (min-width: %a) (max-width: %a})", @m-screen, @large-lower-bound, @large-upper-bound));
+@m-large-upper:  e(%(" %a and  (min-width: %a)", @m-screen, @large-lower-bound));
+
+//------------------------------------------
+//  default color query setting
+//------------------------------------------
+// User Interface Colors
+@color-global-bg: #fff;
+@color-navbar: #4a4d50;
+@color-navbar-link: #fff;
+@color-primary: #3085d6;
+@color-secondary: #42a35a;
+@color-default: #f2f2f2;
+@color-info: #4a4d50;
+@color-danger: #ca3838;
+@color-error: @color-danger;
+@color-warning: #f6b83f;
+@color-success: #58c026;
+@color-primary-hover: #58b2fa;
+@color-secondary-hover: #6dbb80;
+@color-default-hover: #ffffff;
+@color-info-hover: #868d92;
+@color-danger-hover: #f14f4f;
+@color-warning-hover: #fdd27f;
+@color-success-hover: #66d92f;
+@color-horizontal-rule: #ccc;
+@black: #000;
+@white: #fff;
+
+//------------------------------------------
+//  buttons setting
+//------------------------------------------
+@default-button-background-color: #E6E6E6;
+@default-button-text-color: rgba(0, 0, 0, 0.80);
+@default-button-active-box-shadow: e('0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset');
+@default-button-disabled-opacity: 0.4;
+

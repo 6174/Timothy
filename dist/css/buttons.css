@@ -10,10 +10,8 @@
   border: none;
   margin: 0em;
   padding: 0.8em 1.5em;
-  font-size: 1rem;
-  text-transform: uppercase;
   line-height: 1;
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
   text-align: center;
   text-decoration: none;
@@ -29,22 +27,33 @@
   -moz-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   -o-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-  background-color: #FAFAFA;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
-  color: #808080;
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
+}
+.button.fluid {
+  display: block;
 }
 .button.active,
 .buttons .button.active {
-  background-color: #EAEAEA;
-  color: rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+  box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
   background-image: none;
 }
 .button:hover {
   color: rgba(0, 0, 0, 0.7);
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+  /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+  /* IE10 */
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0d000000,endColors=#1a000000);
 }
 .active.button:hover {
   background-image: none;
@@ -55,11 +64,21 @@
 }
 .button:active,
 .active.button:active {
-  background-color: #F1F1F1;
-  color: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+  /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0.1)));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+  /* IE10 */
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#26000000,endColors=#1a000000);
 }
 .disabled.button,
 .disabled.button:hover,
@@ -177,6 +196,30 @@
 /*-------------------
   default button skins
 --------------------*/
+.info.button {
+  color: #ffffff;
+  background-color: #4a4d50;
+}
+.danger.button {
+  color: #ffffff;
+  background-color: #ca3838;
+}
+.success.button {
+  color: #ffffff;
+  background-color: #58c026;
+}
+.warning.button {
+  color: #ffffff;
+  background-color: #f6b83f;
+}
+.secondary.button {
+  color: #ffffff;
+  background-color: #42a35a;
+}
+.primary.button {
+  color: #ffffff;
+  background-color: #3085d6;
+}
 /*-------------------
   Basic button skin
 --------------------*/

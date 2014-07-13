@@ -1,26 +1,80 @@
 @import 'timothy-base.less';
-/**
- * reset box-sizing
- */
-*, *:after, *:before{
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-}
 
-html{
-	font-family: @default-base-font-family;
+/* 默认的字体颜色， 背景色 */
+html, body{
+	color:#333;
+    background:#fff;
+	padding: 0px;
+	margin: 0px;
+	font: @default-base-font;
 	h1, h2, h3, h4, h5, h6{
 		font-family: @default-heading-font-family;
 	}
 	code{
 		font-family: @default-code-font-family
 	}
+}
+
+
+/* 让链接在 hover 状态下显示下划线 */
+a{ color:#1abc9c; }
+a:hover{ text-decoration:underline; }
+
+a{ border-bottom:1px solid #1abc9c; }
+a:hover{ border-bottom-color:#555; color:#555; text-decoration:none; }
+a{
+  text-decoration: none;
+}
+
+/* 一致化 horizontal rule */
+hr{
+  border:none;
+  border-bottom:1px solid #f5f5f5;
+  margin-bottom:10px;
+  *color:pink; *filter:chroma(color=pink);
+  height:10px;
+  *margin:-7px 0 2px;
+}
+
+
+/* reset box-sizing */
+*, *:after, *:before{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+/*-----------------------------
+ * 自定义组件
+ *-----------------------------*/
+@import 'base/visibility.less';
+@import 'base/font-awesome.less';
+//--grid system
+.makeRow(12, 10);
+.makeBlockGrid();
+//--rythm
+html, body{
 	.rhythm();
 }
 
-.makeRow(12, 10);
-.makeBlockGrid();
+/*------------------------------
+ * meta 标记query string size 
+ * js共享css中的配置
+ *-------------------------------*/
 
-@import 'visibility.less';
-@import 'font-awesome.less';
+ meta{
+ 	&.version{
+ 		font-family: "/0.0.1" !important;
+ 	}
+ 	&.mq-small{
+ 		font-family: e("'@{m-small-only}'") !important;
+ 	}
+ 	&.mq-medium{
+ 		font-family: e("'@{m-medium-only}'") !important;
+ 	}
+ 	&.mq-large{
+ 		font-family: e("'@{m-large-upper}'") !important;
+ 	}
+ }
+ 

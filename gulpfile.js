@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 console.log('I am restarted');
 gulp.src(['src/less/timothy.less',
-			'src/elements/buttons.less'
+			'src/less/elements/*.less'
 		])
     		.pipe(less())    		
             .pipe(gulp.dest('dist/css/'));

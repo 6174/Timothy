@@ -1,0 +1,104 @@
+@import '../timothy-base.less';
+/*-------------------
+  checkbox and radio
+  //参考http://wtfforms.com/
+   <label class="checkbox">
+	  <input type="checkbox">
+	  <span class="indicator"></span>
+	  Check this custom checkbox
+	</label>
+
+	<label class="radio">
+	  <input type="radio" id="radio1" name="radio">
+	  <span class="indicator"></span>
+	  Toggle this custom radio
+	</label>
+
+	<label class="radio">
+	  <input type="radio" id="radio2" name="radio">
+	  <span class="indicator"></span>
+	  Or toggle this other custom radio
+	</label>
+--------------------*/
+.checkbox, .radio{
+	position: relative;
+	display: inline-block;
+	padding-left: 1.5rem;
+	color: #555;
+	cursor: pointer;
+	> input {
+	  position: absolute;
+	  opacity: 0;
+	  z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+	}
+	> .indicator{
+	  position: absolute;
+	  top: .35rem;
+	  left: 0;
+	  display: block;
+	  width:  1rem;
+	  height: 1rem;
+	  line-height: 1rem;
+	  font-size: 65%;
+	  color: #eee;
+	  text-align: center;
+	  background-color: #eee;
+	  // background-size: 50% 50%;
+	  // background-position: center center;
+	  // background-repeat: no-repeat;
+	  .user-select(none);
+	}
+
+	> input:focus ~ .indicator {
+	  // box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+	}
+
+	> input:checked ~ .indicator {
+	  // color: #fff;
+	  // background-color: #0074d9;
+	  	font-family: FontAwesome;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: inherit;
+		&::after{
+			position: absolute;
+			// content: "\f00c";
+			display: inline-block;
+			color: @default-text-color;
+		}
+	}
+
+	> input:active ~ .indicator {
+	  // color: #fff;
+	  // background-color: #84c6ff;
+	}
+}
+
+
+.checkbox{
+	> .indicator{
+		 border-radius: .25rem;
+	}
+	> input:checked ~ .indicator::after {
+		content: "\f00c";
+		right: 1px;
+	}
+}
+
+.radio{
+	> .indicator{
+	  border-radius: 50%;
+	}
+
+	> input:checked ~ .indicator::after {
+		content: "\f111";
+		right: 1.7px;
+		top: 0.3px;
+	}
+}
+
+
+
+
+
+

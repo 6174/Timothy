@@ -1,0 +1,172 @@
+@import '../timothy-base.less';
+/*-------------------
+  labels
+--------------------*/
+@default-label-radius: 0.325em;
+.label{
+	display: inline-block;
+	vertical-align: middle;
+	text-transform: uppercase;
+	margin: -0.25em 0.25em 0em;
+	padding: 0.05em 0.6em;
+	.border-radius(@default-label-radius);
+	.box-sizing(border-box);
+	.transition(e('background 0.1s linear'));
+	a{
+		cursor: pointer;
+		color: inherit;
+		opacity: 0.8;
+		border-bottom: none;
+		text-decoration: none;
+		.transition(e('0.2s opacity ease'));
+	}
+	.skin-label-default();
+}
+
+a.label{
+	cursor: pointer;
+	&:hover{
+		text-decoration: none;
+		border: none;
+	}
+}
+
+
+/*-------------------
+  label skin
+--------------------*/
+
+.skin-label-default(){
+	color: rgba(0, 0, 0, 0.65);
+	background-color: #E8E8E8;
+	border-color: #E8E8E8;
+}
+
+//--colors
+@list: primary,  secondary, warning, success, danger, info, e('blue'), e('green'), e('dark'), e('red'), e('yellow');
+@color-list: @color-primary, @color-secondary, @color-warning, @color-success, @color-danger, @color-info, @color-primary, @color-success, @color-info, @color-danger, @color-warning;
+@list-length: length(@list);
+
+.loop-button-color(@list-length);
+.loop-button-color(@i) when (@i > 0){
+  @it: extract(@list, @i);
+  @color: extract(@color-list, @i);
+  .@{it}.labels .label,
+  .@{it}.label{
+    color: @white;
+    background-color: @color;
+    border-color: @color;
+    &:before{
+    	background-color: @color;
+    }
+  }
+  .loop-button-color(@i - 1);
+}
+.loop-button-color(0){}
+
+
+
+/*-------------------
+  label mutations
+--------------------*/
+
+//--image label
+.image.label{
+	width: auto !important;
+	margin-top: 0em;
+	margin-bottom: 0em;
+
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+
+	line-height: 1.5em;
+	vertical-align: baseline;
+	text-transform: none;
+	img{
+		display: inline-block;
+		height: 2em;
+		// --使用负数margin来让image对齐边框
+		margin: -0.2em 0.8em -0.2em -0.6em;
+		vertical-align: top;
+		.border-left-radius(@default-label-radius);
+	}
+}
+
+//--corner-label
+.corner.label{
+	position: absolute;
+	background-color: transparent;
+	top: 0em;
+	right: 0em;
+	z-index: 10;
+	margin: 0em;
+
+	width: 3em;
+	height: 3em;
+	padding: 0em;
+
+	text-align: center;
+	.transition(e('color 0.2s ease'));
+
+	&:after{
+	  position: absolute;
+	  content: "";
+	  right: 0em;
+	  top: 0em;
+	  z-index: -1;
+
+	  width: 0em;
+	  height: 0em;
+
+	  border-top: 0em solid transparent;
+	  border-right: 3em solid transparent;
+	  border-bottom: 3em solid transparent;
+	  border-left: 0em solid transparent;
+
+	  border-right-color: inherit;
+	  .transition(e('border-color 0.2s ease'));
+	}
+
+	> [class*="icon"]{
+		font-size: 0.875em;
+		margin: 0.5em 0em 0em 1.25em;
+	}
+
+	.text{
+		display: inline-block;
+		font-weight: bold;
+
+		margin: 0.5em 0em 0em 1em;
+		width: 2.5em;
+		font-size: 0.875em;
+
+		text-align: center;
+		.rotate(45deg);
+	}
+
+	&.left{
+		right: auto;
+		left: 0em;
+		.icon{
+			margin: 0.5em 0em 0em -1em;
+		}
+		.text{
+			margin: 0.5em 0em 0em -1em;
+			.rotate(-45deg);
+		}
+	}
+	&.left:after{
+		border-top: 3em solid transparent;
+		border-right: 3em solid transparent;
+		border-bottom: 0em solid transparent;
+		border-left: 0em solid transparent;
+
+		border-top-color: inherit;
+	}
+}
+
+
+
+
+
+

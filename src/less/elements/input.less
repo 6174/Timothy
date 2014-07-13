@@ -1,0 +1,165 @@
+@import '../timothy-base.less';
+/*-------------------
+  basic input frame
+--------------------*/
+@input-placeholder-color: #BBB;
+@input-active-background-color: #FAFAFA;
+@input-focus-placeholder-color: #AAA;
+@input-border:  1px solid rgba(0, 0, 0, 0.15);
+.input{
+	display: inline-block;
+	position: relative;
+	color: @default-text-color; 
+	input{
+		width: 100%;
+		margin: 0em;
+		padding: 0.65em 1em;
+		font-size: 1em;
+		outline: none;
+		border: @input-border;
+		color: rgba(0, 0, 0, 0.7);
+		-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+		.border-radius(0);
+		.transition(e('background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease'));
+		.box-sizing('border-box');
+	}
+	&::-webkit-input-placeholder {
+	  color: @input-placeholder-color;
+	}
+	&::-moz-placeholder {
+	  color: @input-placeholder-color;
+	}
+	&.fluid{
+		display: block;
+	}
+
+}
+
+//--state-active
+.input input:active{
+	border-color: rgba(0, 0, 0, 0.3);
+	background-color: @input-active-background-color;
+}
+
+//--state-focus
+.input.focus input,
+.input input:focus{
+	border-color: rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.85);
+	input::-webkit-input-placeholder {
+	  color: @input-focus-placeholder-color;
+	}
+	input::-moz-placeholder {
+	  color: @input-focus-placeholder-color;
+	}
+}
+
+//--state->error
+.input.error input{
+	border-color: @color-error;
+	color: @color-error;
+	&::-webkit-input-placeholder {
+	  color: rgba(255, 80, 80, 0.4);
+	}
+	&::-moz-placeholder {
+	  color: rgba(255, 80, 80, 0.4);
+	}
+	&:focus::-webkit-input-placeholder {
+	  color: rgba(255, 80, 80, 0.7);
+	}
+	&:focus::-moz-placeholder {
+	  color: rgba(255, 80, 80, 0.7);
+	}
+}
+ 
+//--icon input
+.icon.input {
+	input{
+		padding-right: 3em !important;
+	}
+
+    > [class*="icon-"]{
+		cursor: default;
+		position: absolute;
+		opacity: 0.5;
+		top: 0;
+		right: 0;
+		margin: 0;
+		width: 2.6em;
+		height: 100%;
+		padding-top: 0.82em;
+		text-align: center;
+		.transition(e('opacity 0.3s ease-out'));
+	}
+
+	&.left input{
+		padding-left: 3em !important;
+		padding-right: 1.2em !important;
+	}
+
+	&.left > [class*="icon-"]{
+		right: auto;
+		left: 1px;
+	}
+
+	&.inverted >[class*="icon-"]{
+		background-color: #222;
+		color: @white;
+	}
+}
+
+.action.input{
+	display: table;
+	> .button,
+	> .buttons,
+	> input {
+		display: table-cell;
+	}
+	
+
+	> input{
+		border-right: none;
+		padding: 0.8em 1.5em !important;
+	}
+ 
+	.button{
+		border: @input-border !important;
+		padding: 0.8em 1.5em !important;
+		white-space: nowrap;
+	}
+	&.left{
+		> input{
+			border-right: @input-border !important;
+			border-left: none;
+		}
+	}
+
+	> .buttons {
+		.button{
+			border-radius: 0px !important;
+		}
+	}
+
+	&.fluid{
+		display: table;
+		width: 100%;
+		> .button{
+			width: 0.01%;
+		}
+	}
+}
+
+/*--------------------
+        Size
+---------------------*/
+
+.input{
+	&.tiny{font-size: 0.875em}
+	&.small{font-size: 1em;}
+	&.medium{font-size: 1.125em;}
+	&.large{font-size: 1.375em;}
+}
+
+
+
+

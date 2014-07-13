@@ -1,4 +1,4 @@
-@import '../less/timothy-base.less';
+@import '../timothy-base.less';
 @default-border-radius: 0.25em; 
 /*-------------------
   basic button frame
@@ -12,10 +12,8 @@
   border: none;
   margin: 0em;
   padding: 0.8em 1.5em;
-  font-size: 1rem;
-  text-transform: uppercase;
   line-height: 1;
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
   text-align: center;
   text-decoration: none;
@@ -23,6 +21,9 @@
   .box-sizing(border-box);
   .transition(e('opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease'));
 	.btn-skin-default();
+  &.fluid{
+    display: block;
+  }
 }	
 
 // active
@@ -147,37 +148,38 @@
 .vertical.buttons .large.button:last-child {
 	.border-radius(e('0px 0px 0.25em 0.25em'));
 }
+
+
 /////////////////////////////////////////
 //////////////////////////////////////////////////
 /////////////button skins below////////////////
 /////////////////////////////////////
 //////////////////////////////////
 
+
+
 /*-------------------
   default button skins
 --------------------*/
+
 .btn-skin-default(){
-  background-color: #FAFAFA;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));	
-  color: #808080;
+  background-color: @default-button-background-color;
+  color: @default-button-text-color;
 }
 
 .btn-skin-default-active(){
-	background-color: #EAEAEA;
-  color:  rgba(0, 0, 0, 0.7);
-  .box-shadow(e('0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important'));
+  .box-shadow(@default-button-active-box-shadow);
   background-image: none;
 }
 
 .btn-skin-default-hover(){
 	color: rgba(0, 0, 0, 0.7);
-	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+  .linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.1));
 }
 
 .btn-skin-default-mouse-down(){
-	background-color: #F1F1F1;
-	color: rgba(0, 0, 0, 0.7);
 	.box-shadow(e('0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important'));
+  .linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.1));
 }
 
 .btn-skin-default-disabled(){
@@ -188,6 +190,23 @@
 	background-image: none !important;
 	box-shadow: none !important;
 }
+
+ 
+@list: primary,  secondary, warning, success, danger, info;
+@color-list: @color-primary, @color-secondary, @color-warning, @color-success, @color-danger, @color-info;
+@list-length: length(@list);
+
+.loop-button-color(@list-length);
+.loop-button-color(@i) when (@i > 0){
+  @it: extract(@list, @i);
+  .@{it}.button{
+    color: @white;
+    background-color: extract(@color-list, @i);
+  }
+  .loop-button-color(@i - 1);
+}
+.loop-button-color(0){}
+ 
 
 /*-------------------
   Basic button skin

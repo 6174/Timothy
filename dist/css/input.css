@@ -1,0 +1,147 @@
+/*-------------------
+  basic input frame
+--------------------*/
+.input {
+  display: inline-block;
+  position: relative;
+  color: #666666;
+}
+.input input {
+  width: 100%;
+  margin: 0em;
+  padding: 0.65em 1em;
+  font-size: 1em;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -moz-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -o-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-box-sizing: 'border-box';
+  -moz-box-sizing: 'border-box';
+  box-sizing: 'border-box';
+}
+.input::-webkit-input-placeholder {
+  color: #bbbbbb;
+}
+.input::-moz-placeholder {
+  color: #bbbbbb;
+}
+.input.fluid {
+  display: block;
+}
+.input input:active {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: #fafafa;
+}
+.input.focus input,
+.input input:focus {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.85);
+}
+.input.focus input input::-webkit-input-placeholder,
+.input input:focus input::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+.input.focus input input::-moz-placeholder,
+.input input:focus input::-moz-placeholder {
+  color: #aaaaaa;
+}
+.input.error input {
+  border-color: #ca3838;
+  color: #ca3838;
+}
+.input.error input::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.input.error input::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.input.error input:focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.input.error input:focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.icon.input input {
+  padding-right: 3em !important;
+}
+.icon.input > [class*="icon-"] {
+  cursor: default;
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 2.6em;
+  height: 100%;
+  padding-top: 0.82em;
+  text-align: center;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.icon.input.left input {
+  padding-left: 3em !important;
+  padding-right: 1.2em !important;
+}
+.icon.input.left > [class*="icon-"] {
+  right: auto;
+  left: 1px;
+}
+.icon.input.inverted > [class*="icon-"] {
+  background-color: #222;
+  color: #ffffff;
+}
+.action.input {
+  display: table;
+}
+.action.input > .button,
+.action.input > .buttons,
+.action.input > input {
+  display: table-cell;
+}
+.action.input > input {
+  border-right: none;
+  padding: 0.8em 1.5em !important;
+}
+.action.input .button {
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  padding: 0.8em 1.5em !important;
+  white-space: nowrap;
+}
+.action.input.left > input {
+  border-right: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-left: none;
+}
+.action.input > .buttons .button {
+  border-radius: 0px !important;
+}
+.action.input.fluid {
+  display: table;
+  width: 100%;
+}
+.action.input.fluid > .button {
+  width: 0.01%;
+}
+/*--------------------
+        Size
+---------------------*/
+.input.tiny {
+  font-size: 0.875em;
+}
+.input.small {
+  font-size: 1em;
+}
+.input.medium {
+  font-size: 1.125em;
+}
+.input.large {
+  font-size: 1.375em;
+}
