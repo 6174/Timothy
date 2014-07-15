@@ -18,13 +18,13 @@
     </head>
     <body>
         <header class="row">
-            <div class="small-10 large-6  small-centered">
+            <div class="column small-10 large-6  small-centered">
                 <h1>Timothy</h1>
                 <h2>Responsive And  Mobile First  Front End Framework</h2>
             </div>
         </header>
         <div class="row" >
-            <section  class="main-content small-10 large-6  small-centered">
+            <section  class="main-content column small-10 large-6  small-centered">
                 <br>
                 <!-- ======================================我是感情的分割线============================================================= -->
                 <!-- about -->
@@ -38,7 +38,7 @@
                 </h3>
                 <hr>
                 <p>
-                和传统的网格系统一致，Timothy也是以12格为标准(可以在less文件中自定义)，将屏幕分为三种， 分别为<span class="label blue">small</span>, <span class="label yellow">medium</span>, <span class="label red">large</span>； 为何说是mobile first。 有过responsive网站设计的前端都知道， 如果重大屏幕适配到小屏幕是很困难的， 然后反过来会变得相对容易， 可以想像， 小屏幕的东西放在大屏幕上怎么也不会改变， 然后大屏幕的则不然。
+                和传统的网格系统一致，Timothy也是以12格为标准(可以在less文件中自定义)，将屏幕分为三种， 分别为<span class="label blue" >small</span>, <span class="label yellow">medium</span>, <span class="label red">large</span>； 为何说是mobile first。 有过responsive网站设计的前端都知道， 如果重大屏幕适配到小屏幕是很困难的， 然后反过来会变得相对容易， 可以想像， 小屏幕的东西放在大屏幕上怎么也不会改变， 然后大屏幕的则不然。
                 </p>
                 <p>我们来看看最简单的例子， Timothy是如何做响应设计的，改变浏览器的大小， 可以看到当在large屏幕的时候， 一行有4个网格， 在么medium屏幕的时候， 一行有2个网格，在small屏幕的时候，一行有1个网格：</p>
 <pre class="code" data-language="html"><code> 
@@ -91,8 +91,8 @@
                 <p>show-for 方法, 只需要添加一个类就可以在不同屏幕尺寸中显示和隐藏。 </p>
                 <h1>
                 <div class="show-for-small label blue">I am smally</div>
-                <div class="show-for-medium label yellow">yo, I'm mediuma</div>
-                <div class="show-for-large label red">It's largery, hi</div>
+                <div style="transition: all 0.6s ease;"  class="show-for-medium label "  data-inview="(inclass: yellow), (offset: 20)">yo, I'm mediuma</div>
+                <div class="show-for-large label red" >It's largery, hi</div>
                 </h1>
 <pre class="code" data-language="html"><code>                   
   &lt;h1&gt;  
@@ -104,7 +104,7 @@
                 <p>也可以hide-for-size</p>
 
                 <h1>
-                  <div class="hide-for-small label">I will disapear in small screen</div>
+                  <div id="Inview" style="transition: all 0.6s ease;" class="hide-for-small label" data-inview="(inclass: red), (offset: 20)">I will disapear in small screen</div>
                 </h1>
 
                 <h4>Block Grid</h4>
@@ -362,8 +362,40 @@
             <h3>Interchange</h3>
             <hr>
             <!--  -->
-            <img src="" style="width: 100%;" data-interchange="(images/space-small.jpg ,small), (images/space-medium.jpg, medium), (images/space-large.jpg, large)"/>
+            <img src="" style="width: 100%;" data-interchange="(images/space-small.jpg :small), (images/space-medium.jpg: medium), (images/space-large.jpg: large)"/>
+            
+            <h3>anima</h3>
+            <hr>
+            <div class="row">
+              <div class="column small-5" id="AnimaButtonGroup">
+                <div class="button" data-animo="blur">blur</div>
+                <div class="button" data-animo="focus">focus</div>
+                <div class="button" data-animo="tada">tada</div>
+                <div class="button" data-animo="bounce">bounce</div>
+                <div class="button" data-animo="fadeIn">fadeIn</div>
+                <div class="button" data-animo="fadeInUp">fadeInUp</div>
+                <div class="button" data-animo="flash">flash</div>
+                <div class="button" data-animo="shake">shake</div>
+                 <div class="button" data-animo="swing">swing</div>
+                 <div class="button" data-animo="wobble">wobble</div>
+                 <div class="button" data-animo="pulse">pulse</div>
+                 <div class="button" data-animo="flip">flip</div>
+                 <div class="button" data-animo="flipInX">flipInX</div>
+                 <div class="button" data-animo="rotateIn">rotateIn</div>
+                 <div class="button" data-animo="hinge">hinge</div>
+                 <div class="button" data-animo="rollIn">rollIn</div>
+                 <div class="button" data-animo="rollOut">rollOut</div>
+                 <div class="button" data-animo="lightSpeedIn">lightSpeedIn</div>
+                 <div class="button" data-animo="lightSpeedOut">lightSpeedOut</div>
+                 <div class="button" data-animo="wiggle">wiggle</div>
+                 <div class="button" data-animo="appear">appear</div>
+                 <div class="button" data-animo="twirlIn">twirlIn</div>
+              </div>
 
+              <div class="column small-7">
+                <img id="TmallJiang" style="width: 80%;" src="./images/tmall.png" alt="">
+              </div>
+            </div>
             </section>
         </div>
         <script src="javascripts/main.js"></script>

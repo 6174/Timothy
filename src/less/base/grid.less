@@ -33,17 +33,17 @@
   	//--basic @size
     .loop(@column-number);
     .loop(@index) when (@index > 0){
-    	.@{size}-@{index}{
+    	.column.@{size}-@{index}{
     		.grid-column(@index);
     	}
     	@decrease-index: @index - 1;
-		.@{size}-offset-@{decrease-index}{
+		.column.@{size}-offset-@{decrease-index}{
 			.grid-column-offset(@index - 1);
 		}
-		.@{size}-push-@{decrease-index}{
+		.column.@{size}-push-@{decrease-index}{
 			.grid-column-push(@index - 1);
 		}
-		.@{size}-pull-@{decrease-index}{
+		.column.@{size}-pull-@{decrease-index}{
 			.grid-column-pull(@index - 1);
 		}
     	.loop(@index - 1);
@@ -51,20 +51,20 @@
     .loop(0){}
 
     //--center
-	.@{size}-centered{
+	.column.@{size}-centered{
 		margin-left: auto;
 		margin-right: auto;
 		float: none;
 	}
-	.@{size}-centered:last-child{
+	.column.@{size}-centered:last-child{
 		float: none;
 	}
-	.@{size}-uncentered{
+	.column.@{size}-uncentered{
 		margin-left: 0;
 		margin-right: 0;
 		float: left;
 	}
-	.@{size}-uncentered:last-child{
+	.column.@{size}-uncentered:last-child{
 		float: left;
 	}		
   }

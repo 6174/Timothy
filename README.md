@@ -56,6 +56,17 @@ timothy要做的就是做一个kissy版本的mobile first ui框架。 意解决�
 3. form group
 4. modal
 5. menu
+6. equal-height
+7. dropdown
+8. inview class
+9. goto
+10. sticky 
+11. vertical align  
+12. paralax  
+13. tip
+14. tabs 
+15. push <- ratchet
+ 
 ....
 
 todo 文档
@@ -77,15 +88,26 @@ todo 文档
 *  ~~block grid~~ 
 *  ~~visibility~~  
 *  ~~basic button~~
+*  ~~interchange |> responsive image~~
+*  ~~icon~~
+*  ~~icon button~~
+*  ~~form el~~
+*  ~~typography~~
 
 
 ### todo
 ---
--  [] typography (2014-7-9) 
--  [] icons
--  [] icon-button
--  [] form els
--  [] list
+-  [] equal height
+-  [] vertical align
+-  [] inview class
+-  [] sticky
+-  [] goto
+-  -------- 
+-  [] tip
+-  [] dropdown
+-  [] modal
+-  [] tabs
+-  [] paralax
 ...
  
  

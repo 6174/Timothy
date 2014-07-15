@@ -72,7 +72,7 @@ KISSY.add('timothy/components/dataInterchange', function(S, DOM, Event, Timothy)
             var raw = attr.match(/\((.*?)\)/ig);
             var scenarois = {};
             S.each(raw, function(it) {
-                var reg = /\((.*?),(.*?)\)/gi;
+                var reg = /\((.*?):(.*?)\)/gi;
                 var query = reg.exec(it);
                 if (query && query.length === 3) {
                     scenarois[S.trim(query[2])] = S.trim(query[1]);
@@ -101,7 +101,6 @@ KISSY.add('timothy/components/dataInterchange', function(S, DOM, Event, Timothy)
         	var self = this;
             var medias = getCurrentMedia();
             var scenarois = self.scenarois;
-        	console.log(medias, scenarois);
             for (var attr in medias){
             	if(medias[attr] && scenarois[attr]){
             		self.replace(scenarois[attr]);
@@ -171,6 +170,7 @@ KISSY.add('timothy/components/dataInterchange', function(S, DOM, Event, Timothy)
         });
         return mediaHash;
     }
+    
     Event.on(window, 'load', function() {
         Interchange.init();
 
